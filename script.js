@@ -38,12 +38,20 @@ function addC() {
 
 // Remove a row
 function removeR() {
-  alert("Clicked Remove Row"); // Replace this line with your code.
+  if (numRows > 0) {
+    table.deleteRow(numRows - 1);
+    numRows--;
+  }
 }
 
 // Remove a column
 function removeC() {
-  alert("Clicked Remove Col"); // Replace this line with your code.
+  if (numCols > 0) {
+    for (let i = 0; i < numRows; i++) {
+      table.rows[i].deleteCell(numCols - 1);
+    }
+    numCols--;
+  }
 }
 
 // Set global variable for selected color
