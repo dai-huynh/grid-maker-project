@@ -7,12 +7,33 @@ let table = document.getElementById("grid");
 
 // Add a row
 function addR() {
-  alert("Clicked Add Row"); // Replace this line with your code.
+  let newRow = table.insertRow();
+  for (let i = 0; i < numCols; i++) {
+    let newCell = newRow.insertCell();
+    newCell.onclick = () => {
+      newCell.style.backgroundColor = colorSelected;
+    };
+  }
+  numRows++;
 }
 
 // Add a column
 function addC() {
-  alert("Clicked Add Col"); // Replace this line with your code.
+  for (let i = 0; i < numRows; i++) {
+    let newCell = table.rows[i].insertCell();
+    newCell.onclick = () => {
+      newCell.style.backgroundColor = colorSelected;
+    };
+  }
+  if (numRows === 0) {
+    let newRow = table.insertRow();
+    let newCell = newRow.insertCell();
+    newCell.onclick = () => {
+      newCell.style.backgroundColor = colorSelected;
+    };
+    numRows++;
+  }
+  numCols++;
 }
 
 // Remove a row
