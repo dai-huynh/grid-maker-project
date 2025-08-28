@@ -59,12 +59,14 @@ function selectColor() {
   colorSelected = document.getElementById("selectedColorId").value;
   console.log(colorSelected);
 }
+
 // Fill all uncolored cells
 function fillU() {
   for (let i = 0; i < numRows; i++) {
     for (let j = 0; j < numCols; j++) {
       let cell = table.rows[i].cells[j];
-      if (cell.style.backgroundColor === "white") {
+      console.log(cell);
+      if (cell.style.backgroundColor === "") {
         cell.style.backgroundColor = colorSelected;
       }
     }
@@ -86,7 +88,7 @@ function clearAll() {
   for (let i = 0; i < numRows; i++) {
     for (let j = 0; j < numCols; j++) {
       let cell = table.rows[i].cells[j];
-      cell.style.backgroundColor = "white";
+      cell.style.backgroundColor = "";
     }
   }
 }
