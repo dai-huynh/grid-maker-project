@@ -38,12 +38,20 @@ function addC() {
 
 // Remove a row
 function removeR() {
-  alert("Clicked Remove Row"); // Replace this line with your code.
+  if (numRows > 0) {
+    table.deleteRow(numRows - 1);
+    numRows--;
+  }
 }
 
 // Remove a column
 function removeC() {
-  alert("Clicked Remove Col"); // Replace this line with your code.
+  if (numCols > 0) {
+    for (let i = 0; i < numRows; i++) {
+      table.rows[i].deleteCell(numCols - 1);
+    }
+    numCols--;
+  }
 }
 
 // Set global variable for selected color
@@ -51,18 +59,34 @@ function selectColor() {
   colorSelected = document.getElementById("selectedColorId").value;
   console.log(colorSelected);
 }
-
 // Fill all uncolored cells
 function fillU() {
-  alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j < numCols; j++) {
+      let cell = table.rows[i].cells[j];
+      if (cell.style.backgroundColor === "white") {
+        cell.style.backgroundColor = colorSelected;
+      }
+    }
+  }
 }
 
 // Fill all cells
 function fillAll() {
-  alert("Clicked Fill All"); // Replace this line with your code.
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j < numCols; j++) {
+      let cell = table.rows[i].cells[j];
+      cell.style.backgroundColor = colorSelected;
+    }
+  }
 }
 
 // Clear all cells
 function clearAll() {
-  alert("Clicked Clear All"); // Replace this line with your code.
+  for (let i = 0; i < numRows; i++) {
+    for (let j = 0; j < numCols; j++) {
+      let cell = table.rows[i].cells[j];
+      cell.style.backgroundColor = "white";
+    }
+  }
 }
