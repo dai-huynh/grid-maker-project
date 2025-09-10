@@ -1,9 +1,28 @@
-tr,td{
-    border:1px;
-    border-style: solid;
+tr,
+td {
+  border: 1px;
+  border-style: solid;
 }
-td{
-    height: 50px;
-    width: 50px;
-    background-color: white;
+td {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 2rem;
+}
+
+.grid-container {
+  text-align: center;
+}
+
+.button-container {
+  text-align: center;
+  margin-bottom: 20px;
 }
